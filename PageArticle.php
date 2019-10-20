@@ -11,7 +11,7 @@
           Titre : <input type='text' name="titre" placeholder="Entrez le titre de l'article">
           <br>
           <br>
-          Texte : <input type='text' name="texte" maxlength="255" size="150">
+          Texte : <input type='text' name="text" maxlength="255" size="150">
           <br>
           <br>
         <p>

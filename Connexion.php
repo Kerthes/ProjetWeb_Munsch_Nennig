@@ -20,6 +20,7 @@ else
     if ($isPasswordCorrect) {
         session_start();
         $_SESSION['pseudo'] = $resultat['pseudo'];
+        $_SESSION['id']=$resultat['idredacteur']
               echo 'Vous êtes connecté !';
     }
     else {
