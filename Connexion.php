@@ -1,15 +1,17 @@
 <?php
 include 'Connexion_BDD.php';
 
-//  Récupération de l'utilisateur et de son pass hashé
-$req = $objPDO -> prepare("SELECT pseudo, motdepasse FROM nennig16u_projetweb.redacteur WHERE pseudo = :pseudo");
+$req = $objPDO -> prepare("select * FROM nennig16u_projetweb.redacteur WHERE pseudo = :pseudo");
 
-$req->bindValue('pseudo', $_POST['pseudo']);;
+$req->bindValue('pseudo', $_POST['pseudo']);
 
-$resultat = $req->execute();
+$resultat = $req->fetch();
 
 // Comparaison du pass envoyé via le formulaire avec la base
-$isPasswordCorrect = password_verify($_POST['motdepasse'], $resultat['motdepasse']);
+$testmdp = password_verify($_POST['motdepasse'], $resultat['motdepasse']);
+
+echo "$resultat['motdepasse']";
+echo "$_POST['motdepasse']";
 
 if (!$resultat)
 {
@@ -17,13 +19,13 @@ if (!$resultat)
 }
 else
 {
-    if ($isPasswordCorrect) {
+    if ($testmdp) {
         session_start();
         $_SESSION['pseudo'] = $resultat['pseudo'];
-        $_SESSION['id']=$resultat['idredacteur'];
+        $_SESSION['id'] = $resultat['idredacteur'];
               echo 'Vous êtes connecté !';
     }
     else {
-        echo 'Mauvais identifiant ou mot de passe !';
+        echo 'plein le  cul du Mauvais identifiant ou mot de passe !';
     }
 }
