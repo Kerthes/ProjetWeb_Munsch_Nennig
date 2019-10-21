@@ -24,9 +24,8 @@ $result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
     echo"<tr>";
         echo"<td align='center'>".$row['titresujet']."</td>";
         echo"<td align='center'>". $row['date']."</td>";
-        echo"<td align='center'><a href="AffichageArticle.php"</a></td>";
-        /*echo"<td align='center'>". $row['Latitude']."</td>";
-        echo"<td align='center'>". $row['Longitude']."</td>";*/
+        //echo"<td align='center'><a href="AffichageArticle.php"</a></td>";
+
     echo"</tr>";
    }
     $result->closeCursor();
