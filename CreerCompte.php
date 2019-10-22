@@ -73,7 +73,7 @@ include 'Connexion_BDD.php';
   Prénom <input type='text' name="prenom" placeholder="Entrez votre prenom">
   <br>
   <br>
-  Adresse Mail <input type='text' name="adressemail" placeholder="Entrez votre adresse mail">
+  Adresse Mail <input type='email' name="adressemail" placeholder="Entrez votre adresse mail">
   <br>
   <br>
   Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe">
