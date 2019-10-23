@@ -44,9 +44,19 @@ $result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
    }
     $result->closeCursor();
      ?>
-
     </table>
   </p>
+
+<p>
+  <?php
+  if(isset($_SESSION['id'])){
+    echo "<a href='PageArticle.php'> Créer un article </a>";
+  }
+  else {
+    echo "Vous devez être connecté pour créer un article !";
+  }
+?>
+</php>
 
 </body>
 </html>
