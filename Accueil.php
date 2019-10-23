@@ -14,7 +14,7 @@ $result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
 <p>
   <?php
   if(isset($_SESSION['id'])){
-    echo"Bonjour". $_SESSION['pseudo']."";
+    echo"Bonjour ". $_SESSION['pseudo']."";
     echo "<a href='Deconnexion.php'> Déconnexion </a>";
   }
   else {?>
