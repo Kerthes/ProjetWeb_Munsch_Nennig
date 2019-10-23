@@ -11,7 +11,9 @@
           Titre : <input type='text' name="titre" placeholder="Entrez le titre de l'article">
           <br>
           <br>
-          Texte : <input type='text' name="text" maxlength="255" size="150">
+          Texte :
+          <br>
+          <textarea type='text' name="text" maxlength="255" cols="60" rows="10"> </textarea>
           <br>
           <br>
         <p>

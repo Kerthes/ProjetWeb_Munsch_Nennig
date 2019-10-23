@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Blog MUNSCH&NENNIG</title>
+
 <script language=" javascript " type="text/javascript">
     function verifNom(f) {
         if (window.document.forms["formulaire"].nom.value!=""){
@@ -12,9 +13,9 @@
     function verifPrenom(f) {
         if(window.document.forms["formulaire"].prenom.value!=""){
             return true;
+          }
         }
         return false;
-    }
 
     function verifmdp(f) {
         if (window.document.forms["formulaire"].motdepasse.value!=""){

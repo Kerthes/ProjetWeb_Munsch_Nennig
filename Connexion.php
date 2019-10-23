@@ -1,31 +1,36 @@
 <?php
+session_start();
 include 'Connexion_BDD.php';
 
-$req = $objPDO -> prepare("select * FROM nennig16u_projetweb.redacteur WHERE pseudo = :pseudo");
+$req = $objPDO -> prepare("SELECT * FROM nennig16u_projetweb.redacteur WHERE redacteur.pseudo = ?");
 
-$req->bindValue('pseudo', $_POST['pseudo']);
+$req->bindValue(1, $_POST['pseudo']);
 
-$resultat = $req->fetch();
+$req->execute();
 
-// Comparaison du pass envoyé via le formulaire avec la base
-$testmdp = password_verify($_POST['motdepasse'], $resultat['motdepasse']);
+while($row = $req->fetch()){
+  $mdp = $row['motdepasse'];
+  $pseudo = $row['pseudo'];
+  $id = $row['idredacteur'];
+}
 
-echo "$resultat['motdepasse']";
-echo "$_POST['motdepasse']";
-
-if (!$resultat)
+if (!$req)
 {
-    echo '123Mauvais identifiant ou mot de passe !';
+    echo 'Mauvais identifiant ou mot de passe !';
+    header("Location:PageConnexion.php")
 }
 else
 {
-    if ($testmdp) {
-        session_start();
-        $_SESSION['pseudo'] = $resultat['pseudo'];
-        $_SESSION['id'] = $resultat['idredacteur'];
+    if ($_POST['motdepasse'] == $mdp) {
+        //session_start();
+        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['id'] = $id;
               echo 'Vous êtes connecté !';
+              header("Location:Acceuil.php")
     }
     else {
-        echo 'plein le  cul du Mauvais identifiant ou mot de passe !';
+        header("Location:PageConnexion.php")
+        echo "$mdp";
+        echo 'Mauvais identifiant ou mot de passe !';
     }
 }
