@@ -12,7 +12,7 @@ include 'Connexion_BDD.php';
   Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant">
   <br>
   <br>
-  Mot de Passe <input type='text' name="motdepasse" placeholder="Entrez votre mot de passe">
+  Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe">
   <br>
   <br>
   <input type="submit" value="Se connecter">
