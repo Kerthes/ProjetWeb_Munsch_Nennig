@@ -17,7 +17,7 @@ while($row = $req->fetch()){
 if (!$req)
 {
     echo 'Mauvais identifiant ou mot de passe !';
-    header("Location:PageConnexion.php")
+    header("Location:PageConnexion.php");
 }
 else
 {
@@ -26,10 +26,10 @@ else
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['id'] = $id;
               echo 'Vous êtes connecté !';
-              header("Location:Acceuil.php")
+              header("Location:Accueil.php");
     }
     else {
-        header("Location:PageConnexion.php")
+        header("Location:PageConnexion.php");
         echo "$mdp";
         echo 'Mauvais identifiant ou mot de passe !';
     }

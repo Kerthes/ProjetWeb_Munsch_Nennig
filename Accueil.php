@@ -1,16 +1,30 @@
+<?php
+session_start();
+include 'Connexion_BDD.php';
+$result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
+?>
 <html>
 <head>
 <title>Blog MUNSCH&NENNIG</title>
 </head>
 <body>
-<?php
-include 'Connexion_BDD.php';
-$result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
-?>
+
 <h1>Blog</h1>
-<a href="PageConnexion.php">Connexion</a>
-</br>
-<a href="CreerCompte.php">Créer un compte</a>
+
+<p>
+  <?php
+  if(isset($_SESSION['id'])){
+    echo"Bonjour". $_SESSION['pseudo']."";
+    echo "<a href='Deconnexion.php'> Déconnexion </a>";
+  }
+  else {?>
+  <a href="PageConnexion.php">Connexion</a>
+  </br>
+  <a href="CreerCompte.php">Créer un compte</a>
+  <?php
+  }
+?>
+</p>
 
   <p>
     <table border="1">
