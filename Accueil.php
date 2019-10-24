@@ -5,6 +5,7 @@ $result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
 ?>
 <html>
 <head>
+<meta charset="utf-8">
 <title>Blog MUNSCH&NENNIG</title>
 </head>
 <body>
