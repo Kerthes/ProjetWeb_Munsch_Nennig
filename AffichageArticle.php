@@ -11,9 +11,9 @@ $result->execute();
   <title></title>
   </head>
   <body>
+  <div>Vos Sujets:</div>
   <table>
     <?php
-      echo "Vos Sujets:";
       while ($row=$result->fetch()){
         echo "<tr>";
         echo"<td>".$row['titresujet']."</td>";
@@ -22,10 +22,27 @@ $result->execute();
         echo"<td>".$row['textesujet']."</td>";
         echo "</tr>";
         echo "<br>";
-        /*?id=*/
+      }
+      ?>
+    </table>
+    <form method="post" action="AjoutReponse.php">
+      <?php
+      if(isset($_SESSION['id'])){
+        echo "<br>";
+        echo "Ecrire un commentaire:";
+        echo "<br>";
+        echo "<textarea></textarea>";
+        echo "<br>";
+        echo "<input type='submit' value='Envoyer'>";
+      }
+      else{
+        echo "<br>";
+        echo "Vous devez être connecté pour pouvoir commenter";
+        echo "<br>";
+        echo "<a href='Connexion.php'>Se connecter</a>";
       }
     ?>
-  </table>
+    </form>
     <br>
     <a href="Accueil.php">Retour</a>
   </body>
