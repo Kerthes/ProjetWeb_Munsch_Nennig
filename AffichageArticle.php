@@ -13,7 +13,6 @@ $result->execute();
   <body>
   <table>
     <?php
-    if(isset($_SESSION['id'])){
       echo "Vos Sujets:";
       while ($row=$result->fetch()){
         echo "<tr>";
@@ -25,7 +24,6 @@ $result->execute();
         echo "<br>";
         /*?id=*/
       }
-    }
     ?>
   </table>
     <br>
