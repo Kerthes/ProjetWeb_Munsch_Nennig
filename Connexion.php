@@ -26,6 +26,7 @@ else
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['id'] = $id;
               echo 'Vous êtes connecté !';
+              //Envoie sur la page précédente
               header("Location:".$_POST['page']);
     }
     else {
