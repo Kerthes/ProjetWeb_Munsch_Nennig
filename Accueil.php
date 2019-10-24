@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'Connexion_BDD.php';
-$result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
+$result = $objPDO->query('select * from nennig16u_projetweb.sujet ORDER BY datesujet DESC ');
 ?>
 <html>
 <head>
