@@ -1,12 +1,14 @@
 <?php
 session_start();
 include 'Connexion_BDD.php';
+$idsujet=$_GET['id'];
+
 $result = $objPDO->prepare('select * from nennig16u_projetweb.sujet where idsujet=?');
-$result -> bindValue('1',$_GET['id']);
+$result -> bindValue('1',$idsujet);
 $result->execute();
 
-$rep = $objPDO->prepare("select * from nennig16u_projetweb.reponse where idsujet=?");
-$rep -> bindValue('1', $_GET['id']);
+$rep = $objPDO->prepare("select * from nennig16u_projetweb.reponse where idsujet=? ORDER BY daterep DESC");
+$rep -> bindValue('1', $idsujet);
 $rep->execute();
 
 ?>
@@ -37,7 +39,9 @@ $rep->execute();
         ?>
         <form method="post" action="AjoutReponse.php">
         Ecrire un commentaire : <textarea type='text' name='textereponse'> </textarea>
-        <input type='hidden' name="idsujet" value="$_GET['id']">
+        <?php
+        echo"<input type='hidden' name='idsujet' value='".$idsujet."' >";
+        ?>
         <br>
         <br/>
         <input type='submit' value='Envoyer'>
@@ -56,10 +60,10 @@ $rep->execute();
       <?php
         while ($row=$rep->fetch()){
           echo "<tr>";
-          echo"<td>".$row['titresujet']."</td>";
+          echo"<td>".$row['daterep']."</td>";
           echo "</tr>";
           echo "<tr>";
-          echo"<td>".$row['textesujet']."</td>";
+          echo"<td>".$row['textereponse']."</td>";
           echo "</tr>";
           echo "<br>";
         }
