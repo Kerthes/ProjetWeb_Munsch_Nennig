@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <body>
-    <?php  ?>
+    <?php
+    echo $_POST['titre'];
+    echo $_POST['text'];
+    ?>
   </body>
 </html>
