@@ -11,14 +11,12 @@ $result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
   <body>
   <table>
     <?php
-    if(isset($_SESSION['id'])){
       echo "Vos Sujets:";
       while ($row=$result->fetch()){
         echo"<td align='center'>".$row['titresujet']."</td>";
         echo"<td align='center'>".$row['textesujet']."</td>";
         echo "<br>";
       }
-    }
     ?>
   </table>
     <br>
