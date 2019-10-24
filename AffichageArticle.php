@@ -1,7 +1,9 @@
 <?php
 session_start();
 include 'Connexion_BDD.php';
-$result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
+$result = $objPDO->prepare('select * from nennig16u_projetweb.sujet where idsujet=?');
+$result -> bindValue('1',$_GET['id']);
+$result->execute();
 ?>
 <html lang="en" dir="ltr">
   <head>
@@ -14,9 +16,14 @@ $result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
     if(isset($_SESSION['id'])){
       echo "Vos Sujets:";
       while ($row=$result->fetch()){
-        echo"<td align='center'>".$row['titresujet']."</td>";
-        echo"<td align='center'>".$row['textesujet']."</td>";
+        echo "<tr>";
+        echo"<td>".$row['titresujet']."</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo"<td>".$row['textesujet']."</td>";
+        echo "</tr>";
         echo "<br>";
+        /*?id=*/
       }
     }
     ?>
