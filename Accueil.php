@@ -37,7 +37,7 @@ $result = $objPDO->query('select * from nennig16u_projetweb.sujet ');
     while ($row=$result->fetch()){
     echo"<tr>";
         echo"<td align='center'>".$row['titresujet']."</td>";
-        echo"<td align='center'>". $row['date']."</td>";?>
+        echo"<td align='center'>". $row['datesujet']."</td>";?>
         <td align='center'> <a href=<?php echo ("AffichageArticle.php?id=".$row['idsujet']); ?> > Lien </a> </td>
     <?php
     echo"</tr>";
