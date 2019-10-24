@@ -21,7 +21,7 @@ if (!$req)
 }
 else
 {
-    if ($_POST['motdepasse'] == $mdp) {
+    if ($_POST['motdepasse'] == $mdp && !empty($_POST['motdepasse'])) {
         //session_start();
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['id'] = $id;

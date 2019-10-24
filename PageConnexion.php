@@ -10,7 +10,7 @@ include 'Connexion_BDD.php';
 <h1>Blog</h1>
 <h3>Connexion</h3>
 <form method="POST" action="Connexion.php">
-  Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant">
+  Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant" >
   <br>
   <br>
   Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe">
