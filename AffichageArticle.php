@@ -4,6 +4,11 @@ include 'Connexion_BDD.php';
 $result = $objPDO->prepare('select * from nennig16u_projetweb.sujet where idsujet=?');
 $result -> bindValue('1',$_GET['id']);
 $result->execute();
+
+$rep = $objPDO->prepare("select * from nennig16u_projetweb.reponse where idsujet=?");
+$rep -> bindValue('1', $_GET['id']);
+$rep->execute();
+
 ?>
 <html lang="en" dir="ltr">
   <head>
@@ -25,15 +30,19 @@ $result->execute();
       }
       ?>
     </table>
-    <form method="post" action="AjoutReponse.php">
+
       <?php
       if(isset($_SESSION['id'])){
         echo "<br>";
-        echo "Ecrire un commentaire:";
-        echo "<br>";
-        echo "<textarea></textarea>";
-        echo "<br>";
-        echo "<input type='submit' value='Envoyer'>";
+        ?>
+        <form method="post" action="AjoutReponse.php">
+        Ecrire un commentaire : <textarea type='text' name='textereponse'> </textarea>
+        <input type='hidden' name="idsujet" value="$_GET['id']">
+        <br>
+        <br/>
+        <input type='submit' value='Envoyer'>
+        </form>
+      <?php
       }
       else{
         echo "<br>";
@@ -42,7 +51,20 @@ $result->execute();
         echo "<a href='Connexion.php'>Se connecter</a>";
       }
     ?>
-    </form>
+
+    <table>
+      <?php
+        while ($row=$rep->fetch()){
+          echo "<tr>";
+          echo"<td>".$row['titresujet']."</td>";
+          echo "</tr>";
+          echo "<tr>";
+          echo"<td>".$row['textesujet']."</td>";
+          echo "</tr>";
+          echo "<br>";
+        }
+        ?>
+      </table>
     <br>
     <a href="Accueil.php">Retour</a>
   </body>
