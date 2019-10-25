@@ -10,10 +10,10 @@ include 'Connexion_BDD.php';
 <h1>Blog</h1>
 <h3>Connexion</h3>
 <form method="POST" action="Connexion.php">
-  Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant" >
+  Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant" required>
   <br>
   <br>
-  Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe">
+  Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe" required>
   <?php
   //permet de recup en hidden le lien de la page précédent le clique vers la connexion
   //echo("<input type='hidden'name='page' value='".$_SERVER["HTTP_REFERER"]."'>");

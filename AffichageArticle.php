@@ -12,10 +12,6 @@ $rep = $objPDO->prepare("select * from nennig16u_projetweb.reponse where idsujet
 $rep -> bindValue('1', $idsujet);
 $rep->execute();
 
-$psdcom = $objPDO->prepare('select * from nennig16u_projetweb.reponse, nennig16u_projetweb.redacteur where reponse.idredacteur=redacteur.idredacteur and idreponse=?');
-$psdcom -> bindValue('1',$idreponse);
-$psdcom ->execute();
-
 ?>
 <html lang="en" dir="ltr">
   <head>
@@ -63,14 +59,15 @@ $psdcom ->execute();
 
       <table>
         <?php
-      /*  while ($row=$psdcom->fetch()){
-          echo "<tr>";
-          echo"<td>".$row['pseudo']."</td>";
-          echo "</tr>";
-          echo "<br>";*/
           while ($row=$rep->fetch()){
+
+            $psdcom = $objPDO->prepare('select pseudo from nennig16u_projetweb.reponse,nennig16u_projetweb.redacteur where redacteur.idredacteur=reponse.idredacteur and idreponse=?');
+            $psdcom -> bindValue('1',$row['idreponse']);
+            $psdcom->execute();
+            $req=$psdcom->fetch();
+
             echo "<tr>";
-            echo"<td>".$row['daterep']."</td>";
+            echo"<td> Ecrit par ". $req['pseudo'] ." à ".$row['daterep']."</td>";
             echo "</tr>";
             echo "<tr>";
             echo"<td>".$row['textereponse']."</td>";
