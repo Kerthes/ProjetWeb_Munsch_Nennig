@@ -3,6 +3,7 @@ session_start();
 include 'Connexion_BDD.php';
 $idsujet=$_GET['id'];
 
+
 $result = $objPDO->prepare('select * from nennig16u_projetweb.sujet where idsujet=?');
 $result -> bindValue('1',$idsujet);
 $result->execute();
@@ -10,6 +11,10 @@ $result->execute();
 $rep = $objPDO->prepare("select * from nennig16u_projetweb.reponse where idsujet=? ORDER BY daterep DESC");
 $rep -> bindValue('1', $idsujet);
 $rep->execute();
+
+$psdcom = $objPDO->prepare('select * from nennig16u_projetweb.reponse where idreponse=?');
+$psdcom -> bindValue('1',$idreponse);
+$psdcom ->execute();
 
 ?>
 <html lang="en" dir="ltr">
@@ -36,7 +41,7 @@ $rep->execute();
       <?php
       if(isset($_SESSION['id'])){
         echo "<br>";
-        ?>
+      ?>
         <form method="post" action="AjoutReponse.php">
         Ecrire un commentaire : <textarea type='text' name='textereponse'> </textarea>
         <?php
@@ -54,9 +59,9 @@ $rep->execute();
         echo "<br>";
         echo "<a href='Connexion.php'>Se connecter</a>";
       }
-    ?>
+      ?>
 
-    <table>
+      <table>
       <?php
         while ($row=$rep->fetch()){
           echo "<tr>";
@@ -64,6 +69,17 @@ $rep->execute();
           echo "</tr>";
           echo "<tr>";
           echo"<td>".$row['textereponse']."</td>";
+          echo "</tr>";
+          echo "<br>";
+        }
+        ?>
+      </table>
+      <table>
+        <?php
+        while ($row=$psdcom->fetch()){
+
+          echo "<tr>";
+          echo"<td>".$row['pseudo']."</td>";
           echo "</tr>";
           echo "<br>";
         }
