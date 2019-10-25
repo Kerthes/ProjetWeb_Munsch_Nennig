@@ -2,7 +2,7 @@
 session_start();
 include 'Connexion_BDD.php';
 
-$req = $objPDO -> prepare("SELECT * FROM nennig16u_projetweb.redacteur WHERE redacteur.pseudo = ?");
+$req = $objPDO -> prepare("SELECT * FROM redacteur WHERE redacteur.pseudo = ?");
 
 $req->bindValue(1, $_POST['pseudo']);
 

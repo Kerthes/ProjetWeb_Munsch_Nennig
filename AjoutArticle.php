@@ -2,7 +2,7 @@
 session_start();
 include 'Connexion_BDD.php';
 $id = $_SESSION['id'];
-$insert = $objPDO->prepare("Insert into nennig16u_projetweb.sujet(idredacteur,titresujet,textesujet,datesujet) VALUES (?,?,?,?)") ;
+$insert = $objPDO->prepare("Insert into sujet(idredacteur,titresujet,textesujet,datesujet) VALUES (?,?,?,?)") ;
 
 $insert->bindValue(1, $id);
 $insert->bindValue(2, $_POST['titresujet']);

@@ -4,11 +4,11 @@ include 'Connexion_BDD.php';
 $idsujet=$_GET['id'];
 $idreponse=$_GET['id'];
 
-$result = $objPDO->prepare('select * from nennig16u_projetweb.sujet where idsujet=?');
+$result = $objPDO->prepare('select * from sujet where idsujet=?');
 $result -> bindValue('1',$idsujet);
 $result->execute();
 
-$rep = $objPDO->prepare("select * from nennig16u_projetweb.reponse where idsujet=? ORDER BY daterep DESC");
+$rep = $objPDO->prepare("select * from reponse where idsujet=? ORDER BY daterep DESC");
 $rep -> bindValue('1', $idsujet);
 $rep->execute();
 
@@ -61,7 +61,7 @@ $rep->execute();
         <?php
           while ($row=$rep->fetch()){
 
-            $psdcom = $objPDO->prepare('select pseudo from nennig16u_projetweb.reponse,nennig16u_projetweb.redacteur where redacteur.idredacteur=reponse.idredacteur and idreponse=?');
+            $psdcom = $objPDO->prepare('select pseudo from reponse,redacteur where redacteur.idredacteur=reponse.idredacteur and idreponse=?');
             $psdcom -> bindValue('1',$row['idreponse']);
             $psdcom->execute();
             $req=$psdcom->fetch();
@@ -72,7 +72,6 @@ $rep->execute();
             echo "<tr>";
             echo"<td>".$row['textereponse']."</td>";
             echo "</tr>";
-            echo "<br>";
           }
 
         ?>

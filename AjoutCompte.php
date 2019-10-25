@@ -1,7 +1,7 @@
 <?php
 include 'Connexion_BDD.php';
 
-$insert = $objPDO->prepare("Insert into nennig16u_projetweb.redacteur(nom,prenom,adressemail,motdepasse,pseudo) VALUES (:nom,:prenom,:adressemail,:motdepasse,:pseudo)");
+$insert = $objPDO->prepare("Insert into redacteur(nom,prenom,adressemail,motdepasse,pseudo) VALUES (:nom,:prenom,:adressemail,:motdepasse,:pseudo)");
 
 $insert->bindValue('nom', $_POST['nom']);
 $insert->bindValue('prenom', $_POST['prenom']);

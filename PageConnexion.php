@@ -14,10 +14,6 @@ include 'Connexion_BDD.php';
   <br>
   <br>
   Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe" required>
-  <?php
-  //permet de recup en hidden le lien de la page précédent le clique vers la connexion
-  //echo("<input type='hidden'name='page' value='".$_SERVER["HTTP_REFERER"]."'>");
-  ?>
   <br>
   <br>
   <input type="submit" value="Se connecter">
