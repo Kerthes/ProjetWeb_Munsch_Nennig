@@ -2,7 +2,7 @@
 session_start();
 include 'Connexion_BDD.php';
 $idsujet=$_GET['id'];
-
+$idreponse=$_GET['id'];
 
 $result = $objPDO->prepare('select * from nennig16u_projetweb.sujet where idsujet=?');
 $result -> bindValue('1',$idsujet);
@@ -12,7 +12,7 @@ $rep = $objPDO->prepare("select * from nennig16u_projetweb.reponse where idsujet
 $rep -> bindValue('1', $idsujet);
 $rep->execute();
 
-$psdcom = $objPDO->prepare('select * from nennig16u_projetweb.reponse where idreponse=?');
+$psdcom = $objPDO->prepare('select * from nennig16u_projetweb.reponse, nennig16u_projetweb.redacteur where reponse.idredacteur=redacteur.idredacteur and idreponse=?');
 $psdcom -> bindValue('1',$idreponse);
 $psdcom ->execute();
 
@@ -62,7 +62,13 @@ $psdcom ->execute();
       ?>
 
       <table>
-      <?php
+        <?php
+        while ($row=$psdcom->fetch()){
+          echo "<tr>";
+          echo"<td>".$row['pseudo']."</td>";
+          echo "</tr>";
+          echo "<br>";
+        }
         while ($row=$rep->fetch()){
           echo "<tr>";
           echo"<td>".$row['daterep']."</td>";
@@ -73,16 +79,8 @@ $psdcom ->execute();
           echo "<br>";
         }
         ?>
-      </table>
-      <table>
         <?php
-        while ($row=$psdcom->fetch()){
 
-          echo "<tr>";
-          echo"<td>".$row['pseudo']."</td>";
-          echo "</tr>";
-          echo "<br>";
-        }
         ?>
       </table>
     <br>
