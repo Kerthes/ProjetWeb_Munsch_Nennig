@@ -41,7 +41,7 @@ $rep->execute();
         <form method="post" action="AjoutReponse.php">
         Ecrire un commentaire :<br> <textarea type='text' name='textereponse'> </textarea>
         <?php
-        echo"<input type='hidden' name='idsujet' value='".$idsujet."' >";
+        echo"<input type='hidden' name='idsujet' value='".$idsujet."'required >";
         ?>
         <br>
         <br/>

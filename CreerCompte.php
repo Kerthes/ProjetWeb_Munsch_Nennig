@@ -31,28 +31,8 @@
         return false;
     }
 
-    function verifMail(f) {
-        if(window.document.forms["formulaire"].adressemail.value!=""){
-            var mail = window.document.forms["formulaire"].Mail.value;
-            var nb=0;
-            for(var i=0; i<mail.length;i++)
-            {
-                if (mail.charAt(i)=='@')
-                {
-                    nb=nb+1;
-                }
-            }
-            if(nb==1){
-                return true;
-            }
-            else
-                return false;
-        }
-        return false
-    }
-
     function verif(f) {
-        if (verifNom(f)&&verifPrenom(f)&&verifmdp(f)&&verifpseudo(f)&&verifMail(f)){
+        if (verifNom(f)&&verifPrenom(f)&&verifmdp(f)&&verifpseudo(f)){
             return true;
         }
         alert("Erreur : veuillez remplir correctement les champs");
@@ -68,19 +48,19 @@ include 'Connexion_BDD.php';
 <h1>Blog</h1>
 <h3>Création d'un compte</h3>
 <form method="POST" name="formulaire" onsubmit="return verif();" action="AjoutCompte.php" >
-  Nom <input type='text' name="nom" placeholder="Entrez votre nom">
+  Nom <input type='text' name="nom" placeholder="Entrez votre nom" required>
   <br>
   <br>
-  Prénom <input type='text' name="prenom" placeholder="Entrez votre prenom">
+  Prénom <input type='text' name="prenom" placeholder="Entrez votre prenom" required>
   <br>
   <br>
-  Adresse Mail <input type='email' name="adressemail" placeholder="Entrez votre adresse mail">
+  Adresse Mail <input type='email' name="adressemail" placeholder="Entrez votre adresse mail" required>
   <br>
   <br>
-  Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe">
+  Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe" required>
   <br>
   <br>
-  Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant">
+  Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant" required>
   <br>
   <br>
   <input type="submit" value="Créer">
