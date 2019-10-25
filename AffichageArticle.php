@@ -15,8 +15,22 @@ $rep->execute();
 ?>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8">
-  <title></title>
+  <meta charset="utf-8">  <header>
+      <a href='Accueil.php'> Accueil</a>
+      <br/>
+      <?php
+      if(isset($_SESSION['id'])){
+        echo"Vous êtes connecté en tant que ". $_SESSION['pseudo']."<br/>";
+        echo "<a href='Deconnexion.php'> Déconnexion </a>";
+      }
+      else {?>
+        <a href="PageConnexion.php">Connexion</a>
+      </br>
+      <a href="CreerCompte.php">Créer un compte</a>
+      <?php
+    }
+    ?>
+  </header>
 </head>
 <body>
   <div>Vos Sujets:</div>

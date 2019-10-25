@@ -7,15 +7,13 @@ $result = $objPDO->query('select * from sujet ORDER BY datesujet DESC ');
 <head>
   <meta charset="utf-8">
   <title>Blog MUNSCH&NENNIG</title>
-</head>
-<body>
 
-  <h1>Blog</h1>
-
-  <p>
+  <header>
+    <a href='Accueil.php'> Accueil</a>
+    <br/>
     <?php
     if(isset($_SESSION['id'])){
-      echo"Bonjour ". $_SESSION['pseudo']."";
+      echo"Vous êtes connecté en tant que ". $_SESSION['pseudo']."<br/>";
       echo "<a href='Deconnexion.php'> Déconnexion </a>";
     }
     else {?>
@@ -25,7 +23,12 @@ $result = $objPDO->query('select * from sujet ORDER BY datesujet DESC ');
     <?php
   }
   ?>
-</p>
+</header>
+
+</head>
+<body>
+
+  <h1>Blog</h1>
 
 <p>
   <table border="1">

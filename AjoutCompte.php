@@ -11,6 +11,6 @@ $insert->bindValue('pseudo', $_POST['pseudo']);
 
 $insert->execute();
 
-header("Location:CreerCompte.php")
+header("Location:Accueil.php")
 
 ?>
