@@ -43,12 +43,12 @@ $psdcom ->execute();
         echo "<br>";
       ?>
         <form method="post" action="AjoutReponse.php">
-        Ecrire un commentaire : <textarea type='text' name='textereponse'> </textarea>
+        Ecrire un commentaire : <br><textarea type='text' name='textereponse'> </textarea>
         <?php
         echo"<input type='hidden' name='idsujet' value='".$idsujet."' >";
         ?>
         <br>
-        <br/>
+        <br>
         <input type='submit' value='Envoyer'>
         </form>
       <?php
@@ -68,18 +68,16 @@ $psdcom ->execute();
           echo"<td>".$row['pseudo']."</td>";
           echo "</tr>";
           echo "<br>";
+          while ($row=$rep->fetch()){
+            echo "<tr>";
+            echo"<td>".$row['daterep']."</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo"<td>".$row['textereponse']."</td>";
+            echo "</tr>";
+            echo "<br>";
+          }
         }
-        while ($row=$rep->fetch()){
-          echo "<tr>";
-          echo"<td>".$row['daterep']."</td>";
-          echo "</tr>";
-          echo "<tr>";
-          echo"<td>".$row['textereponse']."</td>";
-          echo "</tr>";
-          echo "<br>";
-        }
-        ?>
-        <?php
 
         ?>
       </table>
