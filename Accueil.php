@@ -6,6 +6,7 @@ $result = $objPDO->query('select * from sujet ORDER BY datesujet DESC ');
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style_blog1.css" />
   <title>Blog MUNSCH&NENNIG</title>
 
   <header>

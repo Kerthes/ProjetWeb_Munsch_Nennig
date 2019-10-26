@@ -2,6 +2,7 @@
 
 <head>
   <title>Blog MUNSCH&NENNIG </title>
+  <link rel="stylesheet" href="style_blog1.css" />
 </head>
 
 <body>

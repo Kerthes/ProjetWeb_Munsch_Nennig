@@ -16,6 +16,7 @@ $rep->execute();
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">  <header>
+  <link rel="stylesheet" href="style_blog1.css" />
       <a href='Accueil.php'> Accueil</a>
       <br/>
       <?php

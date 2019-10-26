@@ -4,6 +4,7 @@ include 'Connexion_BDD.php';
 ?>
 <html>
 <head>
+<link rel="stylesheet" href="style_blog1.css" />
 <title>Blog MUNSCH&NENNIG</title>
 </head>
 <body>
