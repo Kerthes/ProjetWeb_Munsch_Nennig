@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 <?php
 session_start();
  ?>
@@ -36,6 +37,28 @@ session_start();
     <br>
     <br>
     <h7>Adresse Mail</h7><br><input type='email' name="adressemail" placeholder="Entrez votre adresse mail" required>
+=======
+<head>
+  <title>Blog MUNSCH&NENNIG</title>
+  <link rel="stylesheet" href="style_blog1.css" />
+</head>
+
+<body>
+  <?php
+  include 'Connexion_BDD.php';
+  ?>
+
+  <h1>Blog</h1>
+  <h3>Création d'un compte</h3>
+  <form method="POST" name="formulaire" action="AjoutCompte.php" >
+    Nom <input type='text' name="nom" placeholder="Entrez votre nom" required>
+    <br>
+    <br>
+    Prénom <input type='text' name="prenom" placeholder="Entrez votre prenom" required>
+    <br>
+    <br>
+    Adresse Mail <input type='email' name="adressemail" placeholder="Entrez votre adresse mail" required>
+>>>>>>> 548f1dcf0eeec22f77648e777a9ba0eddb9c9e9a
 
     <?php if (isset($_GET['erreur'])&&($_GET['erreur']==2||$_GET['erreur']==3)){
       echo"&nbsp&nbsp Adresse E-mail déjà existante";
@@ -43,10 +66,17 @@ session_start();
 
     <br>
     <br>
+<<<<<<< HEAD
     <h7>Mot de Passe</h7><br><input type='password' name="motdepasse" placeholder="Entrez votre mot de passe" required>
     <br>
     <br>
     <h7>Identifiant</h7><br><input type='text' name="pseudo" placeholder="Entrez votre identifiant" required>
+=======
+    Mot de Passe <input type='password' name="motdepasse" placeholder="Entrez votre mot de passe" required>
+    <br>
+    <br>
+    Identifiant <input type='text' name="pseudo" placeholder="Entrez votre identifiant" required>
+>>>>>>> 548f1dcf0eeec22f77648e777a9ba0eddb9c9e9a
 
       <?php if (isset($_GET['erreur'])&&($_GET['erreur']==1||$_GET['erreur']==3)){
         echo"&nbsp&nbsp Pseudo déjà existant";
@@ -55,7 +85,10 @@ session_start();
 
     <br>
     <br>
+<<<<<<< HEAD
     <br>
+=======
+>>>>>>> 548f1dcf0eeec22f77648e777a9ba0eddb9c9e9a
     <input type="submit" value="Créer">
   </form>
 </body>

@@ -3,6 +3,7 @@
 session_start();
 ?>
 <head>
+<<<<<<< HEAD
   <meta charset="utf-8">
   <link rel="stylesheet" href="style_blog1.css" />
   <title>Blog MUNSCH&NENNIG</title>
@@ -25,12 +26,22 @@ session_start();
   }
   ?>
 </div>
+=======
+  <title>Blog MUNSCH&NENNIG </title>
+  <link rel="stylesheet" href="style_blog1.css" />
+</head>
+>>>>>>> 548f1dcf0eeec22f77648e777a9ba0eddb9c9e9a
 
 </head><body>
     <p>
+<<<<<<< HEAD
       <form class="creaart" method="POST" action="AjoutArticle.php">
         <h3> Création d'un article <h3>
           <h7>Titre :</h7><br><input type='text' name="titresujet" placeholder="Entrez le titre de l'article" required>
+=======
+      <form method="POST" action="AjoutArticle.php">
+          Titre : <input type='text' name="titresujet" placeholder="Entrez le titre de l'article" required>
+>>>>>>> 548f1dcf0eeec22f77648e777a9ba0eddb9c9e9a
           <br/>
           <br/>
           <h7>Texte :</h7>
