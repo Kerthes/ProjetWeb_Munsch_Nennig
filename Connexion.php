@@ -2,7 +2,7 @@
 session_start();
 include 'Connexion_BDD.php';
 
-$req = $objPDO -> prepare("SELECT * FROM nennig16u_projetweb.redacteur WHERE redacteur.pseudo = ?");
+$req = $objPDO -> prepare("SELECT * FROM redacteur WHERE redacteur.pseudo = ?");
 
 $req->bindValue(1, $_POST['pseudo']);
 
@@ -21,12 +21,14 @@ if (!$req)
 }
 else
 {
-    if ($_POST['motdepasse'] == $mdp) {
+    if ($_POST['motdepasse'] == $mdp && !empty($_POST['motdepasse'])) {
         //session_start();
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['id'] = $id;
               echo 'Vous êtes connecté !';
-              header("Location:Accueil.php");
+              //Envoie sur la page précédente
+              header("Location:".$_POST['page']);
+              //header("Location:Accueil.php");
     }
     else {
         header("Location:PageConnexion.php");
