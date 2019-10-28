@@ -3,28 +3,37 @@ body{
  color: white;
 }
 
-<<<<<<< HEAD
 p{
   margin-left: 5%;
   margin-right: 5%;
 }
 
-
-
-=======
->>>>>>> 548f1dcf0eeec22f77648e777a9ba0eddb9c9e9a
 a{
   color: white;
   text-align: left;
 }
 
-<<<<<<< HEAD
+td{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+h1{
+  text-align: center;
+  font-size: 500%;
+  padding-top: 1%;
+}
+
 h3{
   text-align: center;
   font-size: 40px;
   font-family: sans-serif;
 }
 
+h7{
+  font-size: 20px;
+  font-family: sans-serif;
+}
 
 .suj{
   border-width: thin;
@@ -71,22 +80,6 @@ h3{
   border-radius: 30px 30px 30px 30px;
 }
 
-td{
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-
-h1{
-  text-align: center;
-  font-size: 500%;
-  padding-top: 1%;
-}
-
-h7{
-  font-size: 20px;
-  font-family: sans-serif;
-}
-
 .rep{
   margin-top: 5%;
   text-align: center;
@@ -107,9 +100,4 @@ h7{
   padding-top: 1%;
   padding-bottom: 1%;
   font-size: 20px;
-=======
-h1{
-  text-align: left;
-
->>>>>>> 548f1dcf0eeec22f77648e777a9ba0eddb9c9e9a
 }
