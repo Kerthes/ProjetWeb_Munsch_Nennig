@@ -11,14 +11,14 @@ $result = $objPDO->query('select * from sujet ORDER BY datesujet DESC ');
   <h1>Blog</h1>
   <div class="menu">
   <?php
-  if(isset($_SESSION['id'])){
-    echo"Vous êtes connecté en tant que ". $_SESSION['pseudo']."<br><br>";
+  if(isset($_SESSION['id'])){  //permet la vérification de la connexion si la variable session est pleine la personne est co
+    echo"Vous êtes connecté en tant que ". $_SESSION['pseudo']."<br><br>";  //affichage de différentes choses pour la co
     echo "<a href='Accueil.php'> Accueil</a><br>";
     echo "<a href='PageArticle.php'> Créer un article </a><br>";
     echo "<a class='navi' href='CreerCompte.php'>Créer un compte</a><br>";
     echo "<a href='Deconnexion.php'> Déconnexion </a><br>";
   }
-  else {
+  else {    //affiche le lien vers la co ou l'inscription
     echo "Vous devez être connecté pour créer un article<br><br>";
     echo "<a href='Accueil.php'> Accueil</a><br>";
     echo "<a class='navi' href='CreerCompte.php'>Créer un compte</a>";
@@ -31,7 +31,7 @@ $result = $objPDO->query('select * from sujet ORDER BY datesujet DESC ');
 <body>
 <p>
   <?php
-  while ($row=$result->fetch()){
+  while ($row=$result->fetch()){    //affichage des différents sujets
     echo "<center><table class='suj' border='0'>";
     echo "<tr>";
     echo"<td align='center'>".$row['titresujet']."</td>";
@@ -40,7 +40,7 @@ $result = $objPDO->query('select * from sujet ORDER BY datesujet DESC ');
     echo"<td align='center'>". $row['datesujet']."</td>";
     echo "</tr>";?>
     <tr>
-      <td align='center'> <a href=<?php echo ("AffichageArticle.php?id=".$row['idsujet']); ?> > Lien </a> </td>
+      <td align='center'> <a href=<?php echo ("AffichageArticle.php?id=".$row['idsujet']); ?> > Lien </a> </td> <!-- idée du sujet est envoyé à travers l'utl et permet d'afficher le sujet voulu--> 
     </tr>
     <?php
     echo "</table></center>";
