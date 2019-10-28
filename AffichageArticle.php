@@ -1,14 +1,14 @@
 <?php
 session_start();
 include 'Connexion_BDD.php';
-$idsujet=$_GET['id'];
+$idsujet=$_GET['id']; //recupere dans l'url la variable que choisit le sujet
 $idreponse=$_GET['id'];
 
-$result = $objPDO->prepare('select * from sujet where idsujet=?');
+$result = $objPDO->prepare('select * from sujet where idsujet=?'); //requete pour recupérer les info du sujet
 $result -> bindValue('1',$idsujet);
 $result->execute();
 
-$rep = $objPDO->prepare("select * from reponse where idsujet=? ORDER BY daterep DESC");
+$rep = $objPDO->prepare("select * from reponse where idsujet=? ORDER BY daterep DESC"); //requete pour recup les infos des reponses + order pour afficher selon la date décroissante
 $rep -> bindValue('1', $idsujet);
 $rep->execute();
 ?>
@@ -53,7 +53,7 @@ $rep->execute();
   }
   echo "</table></center>";
 
-  if(isset($_SESSION['id'])){
+  if(isset($_SESSION['id'])){  //si la co est faite alors commentaire dispo
     echo "<br>";
     echo "<form class='creaart' method='post' action='AjoutReponse.php'>
     <br>
@@ -79,7 +79,7 @@ $rep->execute();
       }
       echo "<br></form>";
     }
-    else{
+    else{   //sinon afficher qu'il faut être connecter
       echo "<br>";
       echo "<center>Vous devez être connecté pour pouvoir commenter</center>";
     }
