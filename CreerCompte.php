@@ -37,6 +37,7 @@ session_start();
     <h7>Adresse Mail</h7><br><input type='email' name="adressemail" placeholder="Entrez votre adresse mail" required>
 
     <?php
+    //affichage des erreurs selon l'id renvoyer par la page d'ajout de compte
     if(isset($_GET['erreur'])&&($_GET['erreur']==2||$_GET['erreur']==3)){
       echo"&nbsp&nbsp Adresse E-mail déjà existante";
     }
