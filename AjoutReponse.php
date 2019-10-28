@@ -11,6 +11,7 @@ $insert->bindValue(4, $_POST['textereponse']);
 
 $insert->execute();
 
+//la variable server permet d'envoyer vers la page précédente
 header("Location:".$_SERVER['HTTP_REFERER']."");
 
 ?>
