@@ -37,6 +37,7 @@ include 'Connexion_BDD.php';
     <h7>Mot de Passe</h7><br><input type='password' name="motdepasse" placeholder="Entrez votre mot de passe" required>
 
     <?php
+    //envoie à l'aide d'une variable hidden la page précédente à celle-ci pour l'utiliser lors de la co. Utiliser principalement lors de la connexion lors de l'utilisation du lien sur un sujet et retourner dessus
     echo"<input type='hidden' name='page' value='".$_SERVER['HTTP_REFERER']."'required >";
     ?>
 
