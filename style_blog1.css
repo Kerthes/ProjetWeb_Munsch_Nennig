@@ -35,6 +35,10 @@ h7{
   font-family: sans-serif;
 }
 
+textarea{
+  width: 90%;
+}
+
 .suj{
   border-width: thin;
   border-color: black;
